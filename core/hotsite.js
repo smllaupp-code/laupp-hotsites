@@ -53,7 +53,14 @@
     addEventListener('load', function () { ajusta(); setTimeout(ajusta, 1500); });
   }
 
-  /* galeria: deslizar + ampliar */
+  /* galeria: deslizar + ampliar (v1.1: slides montados a partir de C.galeria = {base, ids[], ext, alt}, para caber nos 10 mil caracteres) */
+  var gw = $('.h-gal .swiper-wrapper');
+  if (gw && C.galeria && !gw.children.length) {
+    gw.innerHTML = C.galeria.ids.map(function (id, n) {
+      var u = C.galeria.base + id + (C.galeria.ext || '.jpg');
+      return '<a class="swiper-slide" href="' + u + '"><img src="' + u + '" alt="' + (C.galeria.alt || '') + ' ' + (n + 1) + '" loading="lazy"></a>';
+    }).join('');
+  }
   if ($('.h-gal')) {
     carrega('swiper@11.1.14/swiper-bundle.min.css', 1); carrega('glightbox@3.3.0/dist/css/glightbox.min.css', 1);
     carrega('swiper@11.1.14/swiper-bundle.min.js').then(function (ok) {
