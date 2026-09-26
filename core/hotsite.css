@@ -1,0 +1,103 @@
+/* Laupp Hotsites v1 — design system dos hotsites de empreendimento (Samuel Laupp Imóveis).
+   Identidade: azul-marinho #0E1A2B + dourado #C9A24A, Cormorant Garamond (títulos) + Montserrat (texto). */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@400;600;800&display=swap');
+
+:root {
+  --h-m: #0E1A2B; --h-m2: #16263D; --h-o: #C9A24A; --h-v: #1FA855; --h-vw: #25D366; --h-f: #F6F3EC;
+  --h-t: #1c2433; --h-c: #5b6475; --h-r: 18px;
+  --h-serif: 'Cormorant Garamond', Georgia, serif; --h-sans: Montserrat, system-ui, Arial, sans-serif;
+}
+
+/* ---- seções nativas do Tecimob (seletores medidos no lab G, 26/09) ---- */
+main h1 { font-family: var(--h-serif) !important; color: var(--h-m) !important; text-align: center; font-size: clamp(26px, 5vw, 38px) !important; margin: 18px 12px 8px !important; }
+.hotsite-whatsapp-contact { background: var(--h-vw) !important; color: #fff !important; border-radius: 999px !important; font-weight: 800 !important; }
+.js-FormContact input, .js-FormContact textarea { border: 2px solid var(--h-o) !important; border-radius: 12px !important; }
+.grecaptcha-badge { bottom: 84px !important; }
+body.h-com-barra { padding-bottom: 72px; }
+
+/* ---- base ---- */
+.h { font-family: var(--h-sans); color: var(--h-t); max-width: 880px; margin: 0 auto; line-height: 1.55; }
+.h * { box-sizing: border-box; }
+.h a { color: inherit; }
+.h-t { font-family: var(--h-serif); font-size: clamp(26px, 4.6vw, 34px); color: var(--h-m); text-align: center; margin: 44px 0 6px; line-height: 1.15; }
+.h-st { text-align: center; color: var(--h-c); margin: 0 auto 18px; max-width: 560px; font-size: 15px; }
+.h-rev { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+.h-rev.h-vis { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .h-rev { opacity: 1; transform: none; transition: none; } }
+
+/* ---- topo ---- */
+.h-hero { position: relative; border-radius: var(--h-r); overflow: hidden; color: #fff; background: var(--h-m); min-height: 520px; display: flex; align-items: flex-end; }
+.h-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.h-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, #0E1A2B10 20%, #0E1A2Be6 72%); }
+.h-hero-c { position: relative; z-index: 1; padding: 28px 22px; width: 100%; text-align: center; }
+.h-selo { color: var(--h-o); font-size: 12px; letter-spacing: 3px; font-weight: 800; }
+.h-h { font-family: var(--h-serif); font-size: clamp(34px, 7vw, 52px); line-height: 1.05; margin: 10px 0; }
+.h-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 14px 0; }
+.h-chips span { border: 1px solid #C9A24Aaa; background: #0E1A2B66; backdrop-filter: blur(6px); border-radius: 30px; padding: 7px 13px; font-size: 14px; }
+.h-chips b { font-size: 17px; margin-right: 4px; }
+.h-preco { font-size: 30px; font-weight: 800; color: var(--h-o); }
+.h-preco small { display: block; font-size: 13px; color: #fff; opacity: .85; font-weight: 400; }
+
+/* ---- botões ---- */
+.h-w, .h-b { display: inline-block; border-radius: 40px; font-weight: 800; text-decoration: none !important; padding: 15px 30px; margin: 16px 6px 4px; font-size: 16px; border: 0; cursor: pointer; font-family: var(--h-sans); }
+.h-w { background: var(--h-v); color: #fff !important; animation: h-pulso 2.4s 1.2s 2 both; transition: box-shadow .3s; }
+.h-w:hover, .h-w:focus-visible { animation: h-balanca .5s 2; box-shadow: 0 0 12px var(--h-vw), 0 0 30px var(--h-vw), 0 0 52px #25d36699; }
+.h-b { background: transparent; border: 2px solid var(--h-o); color: inherit !important; }
+.h-b:hover { background: var(--h-o); color: var(--h-m) !important; }
+@keyframes h-pulso { 0%, 100% { box-shadow: 0 0 0 0 #25d366cc; } 50% { box-shadow: 0 0 6px 16px #25d36600; } }
+@keyframes h-balanca { 25% { transform: rotate(-4deg) scale(1.06); } 75% { transform: rotate(4deg) scale(1.06); } }
+.h-centro { text-align: center; }
+
+/* ---- galeria ---- */
+.h-gal { margin: 18px 0 4px; }
+.h-gal .swiper-slide img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 14px; display: block; }
+.h-gal:not(.swiper-initialized) .swiper-wrapper { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; }
+.h-gal:not(.swiper-initialized) .swiper-slide { flex: 0 0 84%; scroll-snap-align: center; }
+.h-dica { text-align: center; font-size: 13px; color: var(--h-c); margin: 6px 0 0; }
+
+/* ---- destaque + vídeo ---- */
+.h-dv { display: flex; flex-wrap: wrap; gap: 26px; align-items: center; justify-content: center; }
+.h-dv > div:first-child { flex: 1 1 300px; max-width: 440px; }
+.h-dv ul { list-style: none; padding: 0; margin: 12px 0 0; }
+.h-dv li { padding-left: 28px; position: relative; margin: 10px 0; }
+.h-dv li::before { content: '✓'; position: absolute; left: 0; color: var(--h-v); font-weight: 800; }
+.h-cel { flex: 0 0 270px; max-width: 270px; aspect-ratio: 9/16; border-radius: 30px; overflow: hidden; border: 8px solid var(--h-m); box-shadow: 0 22px 44px #0E1A2B55; background: #000; }
+.h-cel iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+/* ---- lazer (bento) ---- */
+.h-lz { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+.h-lz div { background: #fff; border-radius: 16px; padding: 18px 10px; text-align: center; box-shadow: 0 6px 18px #0E1A2B12; font-weight: 600; transition: transform .25s, box-shadow .25s; }
+.h-lz div:hover { transform: translateY(-4px); box-shadow: 0 12px 26px #0E1A2B22; }
+.h-lz i { display: block; font-size: 30px; font-style: normal; margin-bottom: 6px; }
+
+/* ---- distâncias ---- */
+.h-dist { max-width: 640px; margin: 0 auto; }
+.h-dist div { margin: 0 0 13px; }
+.h-dist p { display: flex; justify-content: space-between; margin: 0 0 4px; font-size: 14px; }
+.h-dist s { display: block; height: 10px; border-radius: 6px; background: linear-gradient(90deg, var(--h-o), var(--h-v)); transform-origin: left; transform: scaleX(0); transition: transform 1.2s ease; }
+.h-vis .h-dist s, .h-dist.h-vis s { transform: scaleX(1); }
+
+/* ---- ferramentas (simulador / agenda) ---- */
+.h-tool { background: var(--h-f); border-radius: var(--h-r); padding: 20px; max-width: 640px; margin: 0 auto; }
+.h-tool label { display: block; font-size: 13px; margin: 10px 0 3px; color: var(--h-c); }
+.h-tool input, .h-tool select { width: 100%; padding: 11px; border-radius: 10px; border: 1px solid #0E1A2B33; font-size: 16px; font-family: var(--h-sans); }
+.h-res { font-size: 26px; font-weight: 800; color: var(--h-v); }
+.h-op { display: flex; flex-wrap: wrap; gap: 6px; }
+.h-op button { background: #fff; border: 2px solid var(--h-o); border-radius: 30px; padding: 9px 14px; font-weight: 700; font-family: var(--h-sans); cursor: pointer; color: var(--h-m); }
+.h-op button.on { background: var(--h-o); color: #fff; }
+
+/* ---- perguntas ---- */
+.h-faq { max-width: 640px; margin: 0 auto; }
+.h-faq details { background: #fff; border-radius: 12px; padding: 14px 16px; margin: 8px 0; box-shadow: 0 3px 10px #0E1A2B10; }
+.h-faq summary { font-weight: 700; color: var(--h-m); cursor: pointer; }
+
+/* ---- fim ---- */
+.h-fim { background: var(--h-m); color: #fff; border-radius: var(--h-r); padding: 34px 20px; text-align: center; margin-top: 44px; }
+.h-fim .h-t { color: #fff; margin-top: 0; }
+
+/* ---- barra fixa no celular ---- */
+.h-barra { position: fixed; left: 0; right: 0; bottom: 0; z-index: 2147483000; display: flex; gap: 8px; padding: 8px 12px max(8px, env(safe-area-inset-bottom)); background: var(--h-m); }
+.h-barra a { flex: 1; display: flex; align-items: center; justify-content: center; height: 48px; border-radius: 12px; font: 800 15px var(--h-sans); text-decoration: none; }
+.h-barra .w { background: var(--h-vw); color: #fff; }
+.h-barra .v { background: var(--h-o); color: var(--h-m); }
+@media (min-width: 900px) { .h-barra { display: none; } body.h-com-barra { padding-bottom: 0; } }
